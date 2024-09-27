@@ -2,15 +2,8 @@ const express = require('express');
 const crypto = require('crypto');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
-const { Sequelize } = require('sequelize');
+const bcrypt = require('bcryptjs');
 const User = require('./models/user');
-
-const sequelize = new Sequelize('database_name', 'username', 'password', {
-    host: 'URI',
-    dialect: 'mysql'
-});
-
-sequelize.sync();
 
 const app = express();
 app.use(bodyParser.json());

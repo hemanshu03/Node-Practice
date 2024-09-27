@@ -1,4 +1,9 @@
-const { DataTypes } = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
+
+const sequelize = new Sequelize('database_name', 'username', 'password', {
+    host: '127.0.0.1',
+    dialect: 'mysql'
+});
 
 const User = sequelize.define('User', {
     email: {
@@ -28,5 +33,7 @@ const User = sequelize.define('User', {
 }, {
     timestamps: false
 });
+
+sequelize.sync();
 
 module.exports = User;
